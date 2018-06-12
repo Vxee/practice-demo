@@ -1,0 +1,35 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<button id="btn">click</button>
+</body>
+<script>
+	window.onload = function () {
+		// var btn = document.getElementById("btn");
+		// btn.onclick = function () {
+		// 	var xhr = new XMLHttpRequest();
+		// 	xhr.onreadystatechange = function () {
+		// 		if (xhr.status == 200 && xhr.readyState == 4) {
+		// 			alert(xhr.responseText);
+		// 		}
+		// 	}
+		// 	xhr.open("get", "https://api.douban.com/v2/book/search?q=javascript&count=1", true);
+		// 	xhr.send();
+		// }
+		btn.onclick = function () {
+			var ele = document.createElement('script');
+			ele.src = "https://api.douban.com/v2/book/search?q=javascript&count=1&callback=handleResponse";
+			document.body.insertBefore(ele, document.body.firstChild);
+		}
+	}
+
+	function handleResponse(res) {
+		console.log(res);
+	}
+</script>
+
+</html>
