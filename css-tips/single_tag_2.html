@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>单标签实现条纹背景</title>
+    <style>
+        div {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+
+        .dashed {
+            background: #4dc7cf;
+            border: 10px dashed #f32160;
+        }
+        .dashed:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #fff;
+        }
+        .dashed2 {
+            background: #fff;
+            background-clip: padding-box;
+            border: 10px dashed #f32160;
+        }
+        .dashed2::before{
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            bottom: -10px;
+            right: -10px;
+            background: #996699;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- border background + dashed + 伪类 实现 -->
+    <p>border background + dashed + 伪类 实现1</p>
+    <div class="dashed"></div>
+    <!-- border background + dashed + 伪类 实现 -->
+    <p>border background + dashed + 伪类 实现2</p>
+    <div class="dashed2"></div>
+</body>
+
+</html>
