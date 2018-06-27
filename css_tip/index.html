@@ -1,0 +1,203 @@
+<!doctpye html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>单标签实现左侧细栏的效果</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .part {
+            margin-left: 50px;
+            height: 100px;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+
+        }
+
+        p {
+            height: 40px;
+            width: 150px;
+            background-color: #ddd;
+        }
+
+        .contentLeft {
+            float: left;
+            width: 30%;
+            height: 100%;
+            min-width: 320px;
+        }
+
+        .contentRight {
+            float: left;
+            width: 40%;
+            height: 100%;
+            background-color: #ffffee;
+            min-width: 500px;
+        }
+
+        .contentRight>style {
+            height: 100%;
+            display: block;
+            overflow-y: scroll;
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- border -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>border</span>
+            <p class="border"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .border {
+                    border-left: 5px solid deeppink;
+                }
+            </style>
+        </div>
+    </div>
+    <!-- 使用伪元素 -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>使用伪元素</span>
+            <p class="pesudo"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .pesudo {
+                    position: relative;
+                }
+
+                .pesudo:after {
+                    position: absolute;
+                    left: 0;
+                    width: 5px;
+                    height: 100%;
+                    background-color: deeppink;
+                    content: '';
+                }
+            </style>
+        </div>
+    </div>
+    <!-- 外box-shadow -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>外box-shadow</span>
+            <p class="boxShadow"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .boxShadow {
+                    box-shadow: -5px 0px 0 0 deeppink;
+                }
+            </style>
+        </div>
+    </div>
+    <!-- 内box-shadow -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>内box-shadow</span>
+            <p class="insertBoxShadow"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .insertBoxShadow {
+                    box-shadow: inset 5px 0px 0 0 deeppink;
+                }
+            </style>
+        </div>
+    </div>
+    <!-- drop-shadow实现 -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>drop-shadow实现</span>
+            <p class="filterDropShadow"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .filterDropShadow {
+                    -webkit-filter: drop-shadow(-5px 0 0 deeppink);
+                    filter: drop-shadow(-5px 0 0 deeppink);
+                }
+            </style>
+        </div>
+    </div>
+    <!-- 线性渐变 -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>线性渐变实现</span>
+            <p class="linearGradient"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .linearGradient {
+                    background-image: linear-gradient(
+                        to right, 
+                        deeppink 0px, 
+                        deeppink 5px, 
+                        transparent 5px
+                    );
+                }
+            </style>
+        </div>
+    </div>
+    <!-- outline -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>outline实现</span>
+            <p class="outline"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .outline {
+                    width: 145px;
+                    height:30px;
+                    margin-top: 5px;
+                    outline: 5px solid deeppink;
+                    position: relative;
+                }
+
+                .outline:after {
+                    position: absolute;
+                    content: '';
+                    top: -5px;
+                    bottom: -5px;
+                    right: -5px;
+                    left: 0;
+                    background: #ddd;
+                }
+            </style>
+        </div>
+    </div>
+    <!-- 滚动条 -->
+    <div class="part">
+        <div class="contentLeft">
+            <span>滚动条实现</span>
+            <p class="scroll"></p>
+        </div>
+        <div class="contentRight">
+            <style contenteditable=true>
+                .scroll {
+                    width: 150px;
+                    background: deeppink;
+                    overflow-y: scroll;
+                }
+
+                .scroll::-webkit-scrollbar {
+                    background-color: #ddd;
+                    width: 145px;
+                }
+            </style>
+        </div>
+    </div>
+</body>
+
+</html>
