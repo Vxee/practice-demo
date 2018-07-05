@@ -29,13 +29,13 @@
  function partition(arr, left, right){  // 分区操作
     var pivot = left,                   // 设定基准值 （pivot）
         index = pivot+1;
-    for(var i = inde1; i <= right; i++){
+    for(var i = index; i <= right; i++){
         if (arr[i] < arr[pivot]) {
             swap(arr, i, index);
-            index++;
+            index++;console.log(arr);
         }
-    }
-    swap(arr, pivot, index-1);
+    }console.log(arr);
+    swap(arr, pivot, index-1);console.log(index);
     return index;
  }
  function swap(arr, i, j){
@@ -47,5 +47,100 @@
 for(var i =0;i< 10 ;i++){
     a1.push(Math.round(Math.random()*100));
 }
- var a = quickSort(a1);
+ var a = quickSort([15,17,0,4]);
  console.log(a);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function quickSort(arr, left, right){
+    var len = arr.length,
+       partitionIndex,
+       left = typeof left != 'number' ? 0 : left,
+       right = typeof right != 'number' ? len -1 : right;
+
+   if(left < right){
+       partitionIndex = partition(arr, left, right);
+       quickSort(arr, left, partitionIndex-1);
+       quickSort(arr, partitionIndex+1, right);
+   }
+   return arr;
+}
+function partition(arr, left, right){  // 分区操作
+   var pivot = left,                   // 设定基准值 （pivot）
+       index = pivot+1;
+   for(var i = index; i <= right; i++){
+       if (arr[i] < arr[pivot]) {
+           swap(arr, i, index);
+           index++;console.log(arr);
+       }
+   }console.log(arr);
+   swap(arr, pivot, index-1);console.log(index);
+   return index;
+}
+function swap(arr, i, j){
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
